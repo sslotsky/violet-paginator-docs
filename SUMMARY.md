@@ -16,7 +16,7 @@
 * Advanced Usage
    * Customizing VioletDataTable
    * Composing Actions
-   * Updating Items
+   * [Updating Items](updating_items.md)
    * Removing Items
    * [Building Custom Components](building_custom_components.md)
        * The PaginationWrapper
