@@ -2,6 +2,6 @@
 
 * [Readme](README.md)
 * [Introduction](introduction.md)
-   * [Tutorial](tutorial.md)
+   * [Quick Tutorial](tutorial.md)
 * [Basic Usage](basic_usage.md)
 
