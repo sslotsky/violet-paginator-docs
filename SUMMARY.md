@@ -1,6 +1,7 @@
 # Summary
 
 * [Read Me](README.md)
+   * API Reference
 * [Introduction](introduction.md)
    * [Quick Tutorial](tutorial.md)
 * [Basic Usage](basic_usage.md)
