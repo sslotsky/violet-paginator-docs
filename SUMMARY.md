@@ -15,7 +15,7 @@
    * Configuration
 * Advanced Usage
    * Customizing VioletDataTable
+   * Composing Actions
    * Updating Items
    * Removing Items
-   * Composing Actions
 
