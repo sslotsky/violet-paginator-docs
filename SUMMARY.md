@@ -17,4 +17,5 @@
    * Customizing VioletDataTable
    * Updating Items
    * Removing Items
+   * Composing Actions
 
