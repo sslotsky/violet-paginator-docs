@@ -1,5 +1,5 @@
 # Summary
 
-* [VioletPaginator](README.md)
+* [Introduction](README.md)
 * [Defining Methods](methods.md)
 
