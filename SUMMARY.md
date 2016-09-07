@@ -1,6 +1,6 @@
 # Summary
 
 * [Readme](README.md)
-* Introduction
+* [Introduction](introduction.md)
 * Basic Usage
 
