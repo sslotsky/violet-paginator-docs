@@ -20,4 +20,5 @@
    * Removing Items
    * [Building Custom Components](building_custom_components.md)
        * The PaginationWrapper
+       * Custom Prev Button
 
