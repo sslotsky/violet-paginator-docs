@@ -10,6 +10,7 @@
        * VioletPrev
        * VioletNext
        * VioletSorkLink
+       * VioletDataTable
    * Fetching
    * Configuration
 
