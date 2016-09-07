@@ -9,5 +9,4 @@
        * VioletFlipper
        * VioletPrev
        * VioletNext
-   * VioletSortLink
 
