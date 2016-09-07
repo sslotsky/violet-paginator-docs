@@ -18,6 +18,6 @@
    * Composing Actions
    * Updating Items
    * Removing Items
-   * Building Custom Components
+   * [Building Custom Components](building_custom_components.md)
        * The PaginationWrapper
 
