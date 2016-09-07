@@ -4,5 +4,5 @@
 * [Introduction](introduction.md)
    * [Quick Tutorial](tutorial.md)
 * [Basic Usage](basic_usage.md)
-   * Pre-made components
+   * [Pre-made components](pre-made_components.md)
 
