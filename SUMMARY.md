@@ -7,4 +7,5 @@
    * [Pre-made components](pre-made_components.md)
        * VioletPaginator
        * VioletFlipper
+       * VioletPrev
 
