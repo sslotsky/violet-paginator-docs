@@ -22,4 +22,5 @@
        * The PaginationWrapper
        * Custom Prev Button
        * Custom Sort Link
+* API Reference
 
