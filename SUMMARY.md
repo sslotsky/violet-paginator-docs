@@ -17,7 +17,7 @@
    * Customizing VioletDataTable
    * Composing Actions
    * [Updating Items](updating_items.md)
-   * Removing Items
+   * [Removing Items](removing_items.md)
    * [Building Custom Components](building_custom_components.md)
        * The PaginationWrapper
        * Custom Prev Button
