@@ -19,4 +19,5 @@
    * Updating Items
    * Removing Items
    * Building Custom Components
+       * The PaginationWrapper
 
