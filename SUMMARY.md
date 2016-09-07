@@ -15,4 +15,5 @@
    * Configuration
 * Advanced Usage
    * Customizing VioletDataTable
+   * Updating Items
 
