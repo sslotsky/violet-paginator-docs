@@ -2,5 +2,5 @@
 
 * [Readme](README.md)
 * [Introduction](introduction.md)
-* Basic Usage
+* [Basic Usage](basic_usage.md)
 
