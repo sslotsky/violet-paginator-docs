@@ -16,4 +16,5 @@
 * Advanced Usage
    * Customizing VioletDataTable
    * Updating Items
+   * Removing Items
 
