@@ -13,4 +13,5 @@
        * VioletDataTable
    * Fetching
    * Configuration
+* Advanced Usage
 
