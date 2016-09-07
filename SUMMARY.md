@@ -8,4 +8,5 @@
        * VioletPaginator
        * VioletFlipper
        * VioletPrev
+       * VioletNext
 
