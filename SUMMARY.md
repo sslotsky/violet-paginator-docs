@@ -18,4 +18,5 @@
    * Composing Actions
    * Updating Items
    * Removing Items
+   * Building Custom Components
 
