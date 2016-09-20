@@ -39,7 +39,7 @@ The `hasPreviousPage` and `hasNextPage` properties are both injected simply by c
 To render a component that's wrapped in a `paginate` call, you must provide a couple of properties:
 
 Property Name | Required | Description | Default
----|:---|:---|---
+---|:---|:---|:---
 `listId`| true | A unique identifier for the relevant list |
 `fetch`| true | The function used to fetch results |
 `isBoundToDispatch`| false | Indicates whether or not the provided fetch function has been bound to the dispatch. | `true`
