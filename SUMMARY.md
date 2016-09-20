@@ -22,5 +22,5 @@
        * The PaginationWrapper
        * Custom Prev Button
        * Custom Sort Link
-* API Reference
+* [API Reference](api_reference.md)
 
