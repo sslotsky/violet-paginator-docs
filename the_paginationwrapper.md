@@ -38,8 +38,11 @@ The `hasPreviousPage` and `hasNextPage` properties are both injected simply by c
 ## Required Props
 To render a component that's wrapped in a `paginate` call, you must provide a couple of properties:
 
-Property Name | Description
----|---
+Property Name | Required | Description
+---|:---|---
+`listId`| true | A unique identifier for the relevant list
+`fetch`| true | The function used to fetch results
+
 
 ## Injected Props
 
