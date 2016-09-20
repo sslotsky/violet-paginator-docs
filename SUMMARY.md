@@ -23,5 +23,5 @@
        * Custom Prev Button
        * Custom Sort Link
 * [API Reference](api_reference.md)
-   * register(config)
+   * [register(config)](registerconfig.md)
 
