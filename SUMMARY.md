@@ -19,7 +19,7 @@
    * [Updating Items](updating_items.md)
    * [Removing Items](removing_items.md)
    * [Building Custom Components](building_custom_components.md)
-       * The PaginationWrapper
+       * [The PaginationWrapper](the_paginationwrapper.md)
        * Custom Prev Button
        * Custom Sort Link
 * [API Reference](api_reference.md)
