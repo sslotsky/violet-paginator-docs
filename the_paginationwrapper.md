@@ -40,11 +40,11 @@ To render a component that's wrapped in a `paginate` call, you must provide a co
 
 Property Name | Required | Description | Default
 ---|:---|:---|---
-`listId`| true | A unique identifier for the relevant list
-`fetch`| true | The function used to fetch results
+`listId`| true | A unique identifier for the relevant list |
+`fetch`| true | The function used to fetch results |
 `isBoundToDispatch`| false | Indicates whether or not the provided fetch function has been bound to the dispatch. | `true`
 `pageSize`| false | Max results per page for the relevant list. | `15`
-`filters`| false | Filters to be applied on first fetch.
+`filters`| false | Filters to be applied on first fetch. |
 `resultsProp` | false | Name of the property from the server response that holds the results. | `'results'`
 `totalCountProp` | false | Name of the property that contains the total record count. | `'totalCount'`
 
@@ -54,7 +54,7 @@ Property Name | Required | Description | Default
 The following is a complete list of properties that will be injected by calling `paginate` on your component:
 
 Property Name | Description
----|---
+---|:---
 `actions`|A set of actions targeting the relevant list
 `paginator`|The pagination state for the relevant list
 `hasPreviousPage`|Indicates whether the current page has a previous page
