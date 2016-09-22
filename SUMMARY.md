@@ -15,7 +15,7 @@
    * Configuration
 * Advanced Usage
    * Customizing VioletDataTable
-   * Composing Actions
+   * [Composing Actions](composing_actions.md)
    * [Updating Items](updating_items.md)
    * [Removing Items](removing_items.md)
    * [Building Custom Components](building_custom_components.md)
