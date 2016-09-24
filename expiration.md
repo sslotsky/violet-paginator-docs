@@ -22,7 +22,7 @@ Now you can dispatch the `expireList` action from anywhere in the application, a
 
 ## expireAll()
 
-Sometimes you may prefer the nuclear option of simply expiring every list in the cache. Here's how you could build a button that expires everything?
+Sometimes you may prefer the nuclear option of simply expiring every list in the cache. Here's how you could build a button that expires everything:
 
 ```javascript
 import React, { PropTypes } from 'react'
