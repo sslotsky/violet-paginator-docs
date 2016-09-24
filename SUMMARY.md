@@ -25,5 +25,5 @@
 * [API Reference](api_reference.md)
    * [register(config)](registerconfig.md)
    * [composables](composables.md)
-   * simpleComposables
+   * [simpleComposables](simplecomposables.md)
 
