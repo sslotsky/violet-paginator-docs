@@ -22,6 +22,7 @@
        * [The PaginationWrapper](the_paginationwrapper.md)
        * Custom Prev Button
        * Custom Sort Link
+   * Expiration
 * [API Reference](api_reference.md)
    * [register(config)](registerconfig.md)
    * [composables](composables.md)
