@@ -1,6 +1,8 @@
 # API Reference
 
 * Actions
+  * composables
+  * simpleComposables
   * [register](registerconfig.md)
   * vpActionTypes
   * destroyAll
