@@ -24,6 +24,6 @@
        * Custom Sort Link
 * [API Reference](api_reference.md)
    * [register(config)](registerconfig.md)
-   * composables
+   * [composables](composables.md)
    * simpleComposables
 
