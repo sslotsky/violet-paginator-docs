@@ -17,7 +17,7 @@
    * Customizing VioletDataTable
    * [Composing Actions](composing_actions.md)
    * [Updating Items](updating_items.md)
-   * Bulk Updating
+   * [Bulk Updating](bulk_updating.md)
    * [Removing Items](removing_items.md)
    * [Building Custom Components](building_custom_components.md)
        * [The PaginationWrapper](the_paginationwrapper.md)
