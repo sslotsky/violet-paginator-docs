@@ -84,20 +84,10 @@ Example:
 
 ```javascript
 import api from 'ROOT/api'
-import { composables } from 'violet-paginator'
+import { simpleComposables } from 'violet-paginator'
 import * as actionTypes from './actionTypes'
 
-export default function fetchRecipes(pageInfo) {
-  return dispatch => {
-    dispatch({ type: actionTypes.FETCH_RECIPES })
-    return api.recipes.index(pageInfo.query)
-  }
-}
-
-const pageActions = composables({
-  listId: 'recipes',
-  fetch: fetchRecipes
-})
+const pageActions = simpleComposables(listId)
 
 export function toggleActive(recipe) {
   const data = {
