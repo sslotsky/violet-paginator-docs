@@ -23,6 +23,7 @@
        * Custom Prev Button
        * Custom Sort Link
    * [Expiration](expiration.md)
+   * Bulk Updating
 * [API Reference](api_reference.md)
    * [register(config)](registerconfig.md)
    * [composables](composables.md)
