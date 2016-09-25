@@ -68,7 +68,7 @@ export function toggleActive(recipe) {
   return pageActions.updateAsync(
     recipe.get('id'),
     data,
-    () => api.recipes.update(data)
+    api.recipes.update(data)
   )
 }
 ```
