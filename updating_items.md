@@ -21,7 +21,32 @@ export function toggleActive(recipe) {
 
 ## Indicate Updating State
 
-In some cases you may want to indicate that an item within a list is waiting for an update from the server.
+In some cases you may want to indicate that an item within a list is waiting for an update from the server. Dispatching the `updatingItem` action will set the appropriate state, which can be checked with the `isUpdating` function.
+
+### Setting the state
+
+```javascript
+import { simpleComposables } from 'violet-paginator'
+
+const pageActions = simpleComposables('recipes')
+
+export function updatingRecipe(recipe) {
+  return pageActions.updatingItem(recipe.get('id'))
+}
+```
+
+### Checking the state
+
+```javascript
+import { isUpdating } from 'violet-paginator'
+import { connect } from 'react-redux'
+
+export default connect(
+  (state, ownProps) => ({
+    updating: isUpdating(state, 'recipes', ownProps.params.id)
+  })
+)(Recipe)
+```
 
 ## Indicate Item in Error
 
