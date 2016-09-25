@@ -52,6 +52,20 @@ export default connect(
 
 If there was a problem updating an item on the server, you may wish to inform the user by styling the corresponding row in the table.
 
+### Setting the state
+
+```javascript
+import { simpleComposables } from 'violet-paginator'
+
+const pageActions = simpleComposables('recipes')
+
+export function recipeError(recipe, error) {
+  return pageActions.itemError(recipe.get('id'), error)
+}
+```
+
+### Checking the state
+
 ## Async Update
 
 ```javascript
