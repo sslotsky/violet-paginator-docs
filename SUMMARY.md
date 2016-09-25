@@ -17,13 +17,13 @@
    * Customizing VioletDataTable
    * [Composing Actions](composing_actions.md)
    * [Updating Items](updating_items.md)
+   * Bulk Updating
    * [Removing Items](removing_items.md)
    * [Building Custom Components](building_custom_components.md)
        * [The PaginationWrapper](the_paginationwrapper.md)
        * Custom Prev Button
        * Custom Sort Link
    * [Expiration](expiration.md)
-   * Bulk Updating
 * [API Reference](api_reference.md)
    * [register(config)](registerconfig.md)
    * [composables](composables.md)
