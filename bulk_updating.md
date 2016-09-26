@@ -47,14 +47,14 @@ import * as actionTypes from './actionTypes'
 
 const pageActions = simpleComposables(listId)
 
-export function markAllRead() {
+export function markAllRead(messageIds) {
   const data = {
     read: true
   }
 
   return pageActions.updateAllAsync(
     data,
-    api.recipes.update(data).then(() => {})  // return a blank object if the response content doesn't matter
+    api.messages.markAllRead(messageIds, data).then(() => {})  // return a blank object if the response content doesn't matter
   )
 }
 ```
