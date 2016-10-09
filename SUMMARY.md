@@ -13,7 +13,7 @@
    * Fetching
    * [Configuration](configuration.md)
        * [Global Configuration](global_configuration.md)
-       * Single List Configuration
+       * [Single List Configuration](single_list_configuration.md)
 * Advanced Usage
    * Customizing VioletDataTable
    * [Composing Actions](composing_actions.md)
