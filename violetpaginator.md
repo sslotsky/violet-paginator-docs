@@ -25,4 +25,4 @@ export default connect(
 )(Recipes)
 ```
 
-Other optional properties are listed in the [PaginationWrapper documentation](the_paginationwrapper.md).
+Other optional properties are listed in the [Configuration documentation](configuration.md).
