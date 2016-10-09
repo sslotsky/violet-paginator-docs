@@ -63,9 +63,9 @@ export default function fetchRecipes(pageInfo) {
 This technique is also useful if you want `violet-paginator` to manage a non-paginated list. In cases like these, the server will typically return a simple array, so you could translate it for `violet-paginator` like this:
 
 ```javascript
-export default function fetchRecipes(pageInfo) {
+export default function fetchRecipes() {
   return () => {
-    return api.recipes.index(pageInfo.query).then(resp => ({
+    return api.recipes.index().then(resp => ({
       total_count: resp.data.length,
       results: resp.data
     }))
