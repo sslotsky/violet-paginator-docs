@@ -25,4 +25,4 @@ export default connect(
 )(Recipes)
 ```
 
-Other optional properties are listed in the [Configuration documentation](configuration.md).
+Other optional properties are listed in the [Single List Configuration documentation](single_list_configuration.md).
