@@ -13,7 +13,7 @@
 * Components
   * VioletDataTable
   * VioletFlipper
-  * VioletPaginator
+  * [VioletPaginator](violetpaginator.md)
   * VioletSortLink
   * VioletPrev
   * VioletNext
