@@ -35,7 +35,7 @@ export default function fetchRecipes(pageInfo) {
       dispatch({ type: actionTypes.SET_UNFILTERED_COUNT, count: resp.data.unfiltered_count })
 
       return resp
-    });
+    })
   }
 }
 ```
