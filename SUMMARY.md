@@ -11,10 +11,10 @@
        * VioletSorkLink
        * VioletDataTable
    * [Fetching](fetching.md)
-       * [Intercepting the Promise](intercepting_the_promise.md)
    * [Configuration](configuration.md)
        * [Global Configuration](global_configuration.md)
        * [Single List Configuration](single_list_configuration.md)
+* [Intercepting the Promise](intercepting_the_promise.md)
 * Advanced Usage
    * Customizing VioletDataTable
    * [Composing Actions](composing_actions.md)
