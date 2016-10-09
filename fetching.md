@@ -18,3 +18,4 @@ When `violet-paginator` calls your function, it will supply the `pageInfo` argum
 2. Sorting parameters, if present
 3. Filtering parameters, if present
 
+However, the `fetch` function can also be used as an opportunity to translate the server response into the proper format. You can also use it to save server data in your own reducer before returning it to `violet-paginator`. See the documentation for [Intercepting the Promise](intercepting_the_promise.md) for examples.
