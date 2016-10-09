@@ -27,7 +27,6 @@
        * Custom Sort Link
    * [Expiration](expiration.md)
 * [API Reference](api_reference.md)
-   * [register(config)](registerconfig.md)
    * [composables](composables.md)
    * [simpleComposables](simplecomposables.md)
 
