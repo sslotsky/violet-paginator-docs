@@ -34,7 +34,7 @@ export default function fetchRecipes(pageInfo) {
     return api.recipes.index(pageInfo.query).then(resp => {
       dispatch({ type: actionTypes.SET_UNFILTERED_COUNT, count: resp.data.unfiltered_count })
 
-      return resp;
+      return resp
     });
   }
 }
