@@ -12,7 +12,7 @@
        * VioletDataTable
    * Fetching
    * [Configuration](configuration.md)
-       * Global Configuration
+       * [Global Configuration](global_configuration.md)
        * Single List Configuration
 * Advanced Usage
    * Customizing VioletDataTable
