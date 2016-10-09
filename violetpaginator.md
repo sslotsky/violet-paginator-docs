@@ -33,6 +33,6 @@ Other optional properties are listed in the [Single List Configuration documenta
 
 In this case, you should render the `VioletPaginator` component like this:
 
-```
+```javascript
 <VioletPaginator listId="recipes" fetch={fetch} resultsProp="recipes" />
 ```
