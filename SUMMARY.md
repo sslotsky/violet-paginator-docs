@@ -11,7 +11,7 @@
        * VioletSorkLink
        * VioletDataTable
    * Fetching
-   * Configuration
+   * [Configuration](configuration.md)
 * Advanced Usage
    * Customizing VioletDataTable
    * [Composing Actions](composing_actions.md)
