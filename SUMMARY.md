@@ -14,8 +14,8 @@
    * [Configuration](configuration.md)
        * [Global Configuration](global_configuration.md)
        * [Single List Configuration](single_list_configuration.md)
-* [Intercepting the Promise](intercepting_the_promise.md)
 * Advanced Usage
+   * [Intercepting the Promise](intercepting_the_promise.md)
    * Customizing VioletDataTable
    * [Composing Actions](composing_actions.md)
    * [Updating Items](updating_items.md)
