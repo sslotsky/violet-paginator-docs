@@ -27,7 +27,7 @@ export default combineReducers({
 
 ## Fetching
 
-In order for `violet-paginator` to fetch a page of records, users need to supply a `fetch` function. The only hard requirement is that the function returns a promise. When `violet-paginator` calls your `fetch` function, it will supply a `pageInfo` object. This object contains a `query` property, which contains the request parameters for pagination and filtering, if applicable. Example fetch function:
+In order for `violet-paginator` to fetch a page of records, users need to supply a `fetch` function. The only hard requirement is that the function returns a promise. When `violet-paginator` calls your `fetch` function, it will supply a `pageInfo` object. This object contains a `query` property, which contains the request parameters for pagination. It also contains filtering parameters, if applicable. Example fetch function:
 
 ```javascript
 import api from 'ROOT/api'
@@ -42,4 +42,60 @@ export default function fetchRecipes(pageInfo) {
 
 ### Assumptions
 
-By default, `violet-paginator` will make some assumptions about your server data. Namely, it assumes that the response contains a `total_count` property indicating the total number of records across all pages, and a `results` property that contains a single page of records. **If your server uses differently named properties**, `violet-paginator` provides a few different ways to override these defaults. You can read about them in the [configuration]() section.
+By default, `violet-paginator` will make some assumptions about your server data. Namely, it assumes that the response contains two properties:
+
+1. A `total_count` property indicating the total number of records across all page
+2. A `results` property that contains a single page of records. 
+
+**If your server uses differently named properties**, `violet-paginator` provides a few different, easy ways to override these defaults. You can read about them in the [configuration](configuration.md) section.
+
+
+## Displaying
+
+Using the `fetch` function that we defined above, we can use `connect` to inject it into a component, passing that and a `listId` into our premade components:
+
+```javascript
+import React, { PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { I18n } from 'react-redux-i18n'
+import { VioletDataTable, VioletPaginator } from 'violet-paginator'
+
+import fetchRecipes from './actions'
+
+export function Index({ fetch }) {
+  const headers = [{
+    field: 'name',
+    text: I18n.t('recipes.name')
+  }, {
+    field: 'created_at',
+    text: I18n.t('recipes.created_at')
+  }, {
+    field: 'boil_time',
+    sortable: false,
+    text: I18n.t('recipes.boil_time')
+  }]
+
+  const paginator = (
+    <VioletPaginator listId="recipes" fetch={fetch} />
+  )
+
+  return (
+    <section>
+      {paginator}
+      <VioletDataTable listId="recipes" fetch={fetch} headers={headers} />
+      {paginator}
+    </section>
+  )
+}
+
+export default connect(
+  () => ({}),
+  { fetch: fetchRecipes }
+)(Index)
+```
+
+That's it! You now have a datatable with full pagination controls above and beneath.
+
+### Quick Note on Styling
+
+Our components were built to be styled with [fontawesome](http://fontawesome.io/) and the [violet css framework](https://github.com/kkestell/violet). If you wish to use these styles, it's up to you to include them in your project. `violet` is not yet available via CDN, but can easily be [downloaded from github](https://github.com/kkestell/violet/blob/master/build/violet/violet.min.css) and dropped into your project.
