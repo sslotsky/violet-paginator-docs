@@ -3,7 +3,6 @@
 * Actions
   * [composables](composables.md)
   * [simpleComposables](simplecomposables.md)
-  * [register](registerconfig.md)
   * vpActionTypes
   * destroyAll
   * expireAll
