@@ -3,7 +3,8 @@
 You might want to override some defaults for a specific list rather than for all lists. For example, it may be the case that each endpoint that returns a list has a different property name to contain the results.
 
 ## Using Component Props
-To demonstrate, let's use the example from our [Quick Tutorial](introduction.md), but this time we'll tell `violet-paginator` that our results are contained in the `recipes` field of the server response:
+
+To demonstrate, let's modify the example from our [Quick Tutorial](introduction.md). We'll tell `violet-paginator` to look for our results within the `recipes` field of the server response:
 
 ```javascript
   const config = {
