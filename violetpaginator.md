@@ -25,4 +25,14 @@ export default connect(
 )(Recipes)
 ```
 
-Other optional properties are listed in the [Single List Configuration documentation](single_list_configuration.md).
+Other optional properties are listed in the [Single List Configuration documentation](single_list_configuration.md). The most commonly used optional property is `resultsProp`. This indicates the property name of the server response that contains the results. For example, imagine the server response looks like this:
+
+```
+{ totalCount: 102, recipes: [...] }
+```
+
+In this case, you should render the `VioletPaginator` component like this:
+
+```
+<VioletPaginator listId="recipes" fetch={fetch} resultsProp="recipes" />
+```
