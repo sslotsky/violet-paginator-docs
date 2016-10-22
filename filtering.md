@@ -60,11 +60,67 @@ export default connect(
 )(ShowActive)
 ```
 
+Example URL's after filtering:
+
+```
+// after checking box
+https://brewed-dev.herokuapp.com/v1/recipes?page=1&results_per_page=15&active=true
+
+// after unchecking box
+https://brewed-dev.herokuapp.com/v1/recipes?page=1&results_per_page=15
+```
 
 ## setFilters(filters)
 
+Call this action if you want to set multiple filters at once. The function accepts a plain JavaScript object with all the filters you wish to set. Perhaps you want to filter your list to exclude both inactive and outdated items:
 
+```javascript
+import api from 'ROOT/api'
+import { composables } from 'violet-paginator'
 
+export default function fetchRecipes(pageInfo) {
+  ...
+}
+
+const pageActions = composables({
+  listId: 'recipes',
+  fetch: fetchRecipes
+})
+
+export function showCurrentActiveItems() {
+  return pageActions.setFilters({
+    active: true,
+    last_activity: { gt: '2015-10-31' }
+  });
+}
+```
 ## resetFilters(filters)
 
+This is similar to `setFilters` in that it sets multiple filters at once. However, this action will also clear any filters that are not specified by the `filters` argument. 
+
 ## toggleFilterItem(field, value)
+
+Use this action if the filter you're maintaining represents an array of values. A possible use case might be filtering an employee list by one or more job titles:
+
+```javascript
+import api from 'ROOT/api'
+import { composables } from 'violet-paginator'
+
+export default function fetchRecipes(pageInfo) {
+  ...
+}
+
+const pageActions = composables({
+  listId: 'recipes',
+  fetch: fetchRecipes
+})
+
+export function toggleDevelopers() {
+  return pageActions.toggleFilterItem('job_title', 'dev');
+}
+
+export function toggleExecutives() {
+  return pageActions.toggleFilterItem('job_title', 'exec');
+}
+
+```
