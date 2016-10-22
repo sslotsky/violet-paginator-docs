@@ -1,6 +1,6 @@
 # VioletSortLink
 
-This component requests the first page of data, sorted by a given field. The example below shows two sort links as they would appear in the `VioletDataTable` component. The arrow in the `Name` column indicates that we have sorted the list by the `name` field in ascending order. Clicking the link would switch to descending order and flip the arrow.
+This component requests the first page of data, sorted by a given field. The example below shows two sort links as they would appear in the [`VioletDataTable`](violetdatatable.md) component. The arrow in the `Name` column indicates that we have sorted the list by the `name` field in ascending order. Clicking the link would switch to descending order and flip the arrow.
 
 ![](Screen Shot 2016-10-22 at 2.56.12 PM.png)
 
