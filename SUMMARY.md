@@ -8,7 +8,7 @@
        * VioletFlipper
        * VioletPrev
        * VioletNext
-       * VioletSorkLink
+       * VioletSortLink
        * VioletDataTable
    * [Fetching](fetching.md)
    * [Configuration](configuration.md)
