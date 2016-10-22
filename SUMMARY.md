@@ -19,7 +19,7 @@
    * Customizing VioletDataTable
    * [Composing Actions](composing_actions.md)
    * Sorting
-   * Filtering
+   * [Filtering](filtering.md)
    * [Expiration](expiration.md)
    * [Updating Items](updating_items.md)
    * [Bulk Updating](bulk_updating.md)
