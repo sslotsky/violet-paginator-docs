@@ -18,6 +18,7 @@
    * [Intercepting the Promise](intercepting_the_promise.md)
    * Customizing VioletDataTable
    * [Composing Actions](composing_actions.md)
+   * Sorting
    * [Updating Items](updating_items.md)
    * [Bulk Updating](bulk_updating.md)
    * [Removing Items](removing_items.md)
@@ -26,7 +27,6 @@
        * Custom Prev Button
        * Custom Sort Link
    * [Expiration](expiration.md)
-   * Sorting
    * Filtering
 * [API Reference](api_reference.md)
    * [composables](composables.md)
