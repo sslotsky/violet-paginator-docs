@@ -19,6 +19,7 @@
    * Customizing VioletDataTable
    * [Composing Actions](composing_actions.md)
    * Sorting
+   * Filtering
    * [Updating Items](updating_items.md)
    * [Bulk Updating](bulk_updating.md)
    * [Removing Items](removing_items.md)
@@ -27,7 +28,6 @@
        * Custom Prev Button
        * Custom Sort Link
    * [Expiration](expiration.md)
-   * Filtering
 * [API Reference](api_reference.md)
    * [composables](composables.md)
    * [simpleComposables](simplecomposables.md)
