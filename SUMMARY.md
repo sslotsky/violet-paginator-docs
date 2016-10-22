@@ -26,6 +26,7 @@
        * Custom Prev Button
        * Custom Sort Link
    * [Expiration](expiration.md)
+   * Sorting
 * [API Reference](api_reference.md)
    * [composables](composables.md)
    * [simpleComposables](simplecomposables.md)
