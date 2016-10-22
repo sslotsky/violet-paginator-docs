@@ -9,7 +9,7 @@
        * VioletPrev
        * VioletNext
        * [VioletSortLink](violetsortlink.md)
-       * VioletDataTable
+       * [VioletDataTable](violetdatatable.md)
    * [Fetching](fetching.md)
    * [Configuration](configuration.md)
        * [Global Configuration](global_configuration.md)
