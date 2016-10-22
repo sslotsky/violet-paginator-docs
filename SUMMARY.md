@@ -20,6 +20,7 @@
    * [Composing Actions](composing_actions.md)
    * Sorting
    * Filtering
+   * [Expiration](expiration.md)
    * [Updating Items](updating_items.md)
    * [Bulk Updating](bulk_updating.md)
    * [Removing Items](removing_items.md)
@@ -27,7 +28,6 @@
        * [The PaginationWrapper](the_paginationwrapper.md)
        * Custom Prev Button
        * Custom Sort Link
-   * [Expiration](expiration.md)
 * [API Reference](api_reference.md)
    * [composables](composables.md)
    * [simpleComposables](simplecomposables.md)
