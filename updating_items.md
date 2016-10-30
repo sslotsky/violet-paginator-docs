@@ -1,5 +1,5 @@
 # Updating Items
-If you want to be able to edit your records from within the list view, we've got you covered. `violet-paginator` exposes both synchronous and asynchronous actions that allow you to modify the properties of a list item, 
+If you want to be able to edit your records from within the list view, we've got you covered. `violet-paginator` exposes both synchronous and asynchronous actions that allow you to modify the properties of a list item. 
 
 
 ## Async Update
