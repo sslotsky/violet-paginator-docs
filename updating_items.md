@@ -10,8 +10,8 @@ updateAsync(id, data, update)
 
 We intend for the `updateAsync` action to be your one-stop-shop for inline updates. This action executes the following operations:
 
-1. Calls `updateItem` to merge the properties from the `data` argument. This will normally be the same data you submit to the server, but can really be anything you want.
-2. Calls `updatingItem` to indicate that the item is waiting for an update from the server.
+1. Call `updateItem` to merge the properties from the `data` argument. This will normally be the same data you submit to the server, but can really be anything you want.
+2. Call `updatingItem` to indicate that the item is waiting for an update from the server.
 3. Call the `update` promise, provided as the last argument to `updateAsync`. 
 4. If the `update` promise succeeds, call `updateItem` again using the resolved data.
 5. If the `update` promise fails, use `resetItem` to revert the item to its previous state. Then dispatch `itemError` to indicate that the item failed to update.
