@@ -8,7 +8,7 @@ If you want to be able to edit your records from within the list view, we've got
 updateAsync(id, data, update)
 ```
 
-The `updateAsync` is intended to be your one-stop-shop for updates. This action executes the following operations:
+We intend for the `updateAsync` action to be your one-stop-shop for inline updates. This action executes the following operations:
 
 1. Calls `updateItem` to merge the properties from the `data` argument. This will normally be the same data you submit to the server, but can really be anything you want.
 2. Calls `updatingItem` to indicate that the item is waiting for an update from the server.
