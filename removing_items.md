@@ -33,3 +33,22 @@ export function deleteRecipe(recipe) {
   )
 }
 ```
+
+## Removal in Progress
+
+If you want to check for a removal in progress, use the `isRemoving` function:
+
+```javascript
+import React, { PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { isRemoving } from 'violet-paginator'
+
+export function ListItem({ isRemoving }) {
+  ...
+})
+
+export default connect(
+  (state, ownProps) => ({ isRemoving: isRemoving(state, 'myList', ownProps.itemId })
+)(ListItem)
+```
+
