@@ -38,7 +38,7 @@ export function toggleActive(recipe) {
 }
 ```
 
-Note that `violet-paginator` will handle your promise failure if it occurs. If you want to handle that error yourself, just make sure you throw it along to us:
+Note that `violet-paginator` will handle your promise failure if it occurs. If you want to handle that error yourself, just make sure you throw it along to us when you're done:
 
 ```javascript
 export function toggleActive(recipe) {
