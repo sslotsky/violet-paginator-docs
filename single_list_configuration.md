@@ -54,8 +54,10 @@ Another way to adapt an API response for `violet-paginator` is to intercept the 
 export default function fetchRecipes(pageInfo) {
   return () => {
     return api.recipes.index(pageInfo.query).then(resp => ({
-      total_count: resp.data.totalCount,
-      results: resp.data.recipes
+      data: {
+        total_count: resp.data.totalCount,
+        results: resp.data.recipes
+      }
     }))
   }
 }
