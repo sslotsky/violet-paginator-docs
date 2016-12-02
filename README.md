@@ -1,4 +1,8 @@
+[![npm](https://img.shields.io/npm/v/violet-paginator.svg)](https://github.com/sslotsky/violet-paginator)
+[![npm](https://img.shields.io/npm/dt/violet-paginator.svg)](https://www.npmjs.com/package/violet-paginator)
+[![npm](https://img.shields.io/npm/dm/violet-paginator.svg)](https://www.npmjs.com/package/violet-paginator)
 [![Build Status](https://travis-ci.org/sslotsky/violet-paginator.svg?branch=master)](https://travis-ci.org/sslotsky/violet-paginator)
+[![npm](https://img.shields.io/npm/l/express.svg)](https://github.com/sslotsky/violet-paginator)
 
 # violet-paginator
 
@@ -41,9 +45,22 @@ and `font-awesome` stylesheets as described later in this document.
 
 ## Usage
 
-`VioletPaginator` is intended to be flexible so that it can be used in many ways without much fuss. We provide premade components,
-but our library is broken down into small, exposed pieces that allow you to easily override default settings, abstract core functionality,
-and create your own components.
+`VioletPaginator` is intended to be flexible so that it can be used in many ways without much fuss. We provide premade components, but our library is broken down into small, exposed pieces that allow you to easily override default settings, abstract core functionality, and create your own components.
+
+### Mounting the reducer
+
+As with many redux based packages, `violet-paginator` comes with a reducer that must be imported and added to your state via `combineReducers`:
+
+```javascript
+import { pagination } from 'violet-paginator'
+import { combineReducers } from 'redux'
+import users from './users/reducer'
+
+export default combineReducers({
+  users,
+  pagination
+})
+```
 
 ### Configuration
 
@@ -162,10 +179,7 @@ hooked up that allows action creators to return promises. Below is an example fe
 
 ```javascript
 export default function fetchRecipes(pageInfo) {
-  return dispatch => {
-    dispatch({ type: actionTypes.FETCH_RECIPES })
-    return api.recipes.index(pageInfo.query)
-  }
+  return () => api.recipes.index(pageInfo.query);
 }
 ```
 
@@ -196,9 +210,9 @@ and [Font Awesome](http://fontawesome.io/). We don't expose these stylesheets fr
 include those in your project however you see fit. The easiest way is with CDN links:
 
 ```html
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans:400,500">
-<link rel="stylesheet" href="http://kestell.org/violet/build/violet.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/violet/0.0.1/violet.min.css">
 ```
 
 If Violet isn't for you but you still want to use our components, just write your own CSS. Our components
@@ -353,4 +367,4 @@ key points:
 
 ### Testing
 
-This package is tested with mocha. There are currently only a few tests and more will be added in the near future. The project uses CI through Travis which includes running tests and linting. Please make sure to write tests for any new pull requests.
+This package is tested with mocha. The project uses CI through Travis which includes running tests and linting. Please make sure to write tests for any new pull requests.
