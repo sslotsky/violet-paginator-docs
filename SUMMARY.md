@@ -1,6 +1,5 @@
 # Summary
 
-* [Read Me](README.md)
 * [Quick Tutorial](introduction.md)
 * [Basic Usage](basic_usage.md)
    * [Pre-made components](pre-made_components.md)
