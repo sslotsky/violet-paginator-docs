@@ -13,6 +13,7 @@
    * [Configuration](configuration.md)
        * [Global Configuration](global_configuration.md)
        * [Single List Configuration](single_list_configuration.md)
+   * [Server Side Rendering](server-side-rendering.md)
 * Advanced Usage
    * [Intercepting the Promise](intercepting_the_promise.md)
    * Customizing VioletDataTable
