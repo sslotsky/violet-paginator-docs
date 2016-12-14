@@ -40,4 +40,5 @@ export default connect(
 )(Recipes)
 ```
 
+An optional `className` prop can also be specified for styling purposes.
 Optional configuration properties can be found in the [Single List Configuration](single_list_configuration.md) documentation.
