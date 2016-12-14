@@ -4,11 +4,11 @@
         "versions": {
             "gitbookConfigURL": "https://github.com/sslotsky/violet-paginator-docs/edit/master/book.json",
             "options": [{
+                "value": "https://github.com/sslotsky/violet-paginator-docs/tree/v1.9.1/",
+                "text": "Version 1.9.1"             
+            }, {
                 "value": "https://github.com/sslotsky/violet-paginator-docs/tree/v1.8.4/",
                 "text": "Version 1.8.4"
-            }, {
-                "value": "https://github.com/sslotsky/violet-paginator-docs/tree/v1.9.1/",
-                "text": "Version 1.9.1"
             }]
         },
         "theme-api": {
