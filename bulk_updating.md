@@ -17,10 +17,10 @@ Example:
 
 ```javascript
 import api from 'ROOT/api'
-import { simpleComposables } from 'violet-paginator'
+import { composables } from 'violet-paginator'
 import * as actionTypes from './actionTypes'
 
-const pageActions = simpleComposables(listId)
+const pageActions = composables({ listId: 'recipes' })
 
 export function markAllRead(messageIds) {
   const data = {
@@ -48,10 +48,10 @@ Example:
 
 ```javascript
 import api from 'ROOT/api'
-import { simpleComposables } from 'violet-paginator'
+import { composables } from 'violet-paginator'
 import * as actionTypes from './actionTypes'
 
-const pageActions = simpleComposables(listId)
+const pageActions = composables({ listId: 'messages' })
 
 export function markAllRead(messageIds) {
   const data = {
@@ -72,9 +72,9 @@ export function markAllRead(messageIds) {
 Use the `updateItems` action to instantly apply the provided `data` to the items specified by the `itemIds`. Example:
 
 ```javascript
-import { simpleComposables } from 'violet-paginator'
+import { composables } from 'violet-paginator'
 
-const pageActions = simpleComposables('messages')
+const pageActions = composables({ listId: 'recipes' })
 
 export function toggleRead(recipeIds) {
   return pageActions.updateAll(
@@ -89,9 +89,9 @@ export function toggleRead(recipeIds) {
 Use the `updateAll` action to apply an instant update to every item in the list. Example:
 
 ```javascript
-import { simpleComposables } from 'violet-paginator'
+import { composables } from 'violet-paginator'
 
-const pageActions = simpleComposables('messages')
+const pageActions = composables({ listId: 'messages' })
 
 export function toggleRead() {
   return pageActions.updateAll(

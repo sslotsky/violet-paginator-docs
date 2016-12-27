@@ -1,10 +1,12 @@
 # Filtering
 
-We provide list filtering functionality by exposing four different actions. Calling any of these actions will trigger a request for the first page of data given the updated filters.
+We provide list filtering functionality by exposing four different actions. Calling any of these actions will trigger a
+request for the first page of data given the updated filters.
 
 ## setFilter(field, value)
 
-Use this action to set a value for a single filter. As an example, you might have a checkbox that filters inactive items out of the data set. You could define an action creator that uses `setFilter` like this:
+Use this action to set a value for a single filter. As an example, you might have a checkbox that filters inactive items out of the data set.
+You could define an action creator that uses `setFilter` like this:
 
 ```javascript
 import api from 'ROOT/api'
@@ -14,17 +16,15 @@ export default function fetchRecipes(pageInfo) {
   ...
 }
 
-const pageActions = composables({
-  listId: 'recipes',
-  fetch: fetchRecipes
-})
+const pageActions = composables({ listId: 'recipes' })
 
 export function showActive(showingActive) {
   return pageActions.setFilter('active', showingActive || undefined);
 }
 ```
 
-Note that in this case, we set the value to `undefined` when `showingActive` is false, which results in the removal of that filter from the URL. You could set the filter to `false` instead if you actually wanted to see _only_ inactive recipes.
+Note that in this case, we set the value to `undefined` when `showingActive` is false, which results in the removal of that filter from the URL.
+You could set the filter to `false` instead if you actually wanted to see _only_ inactive recipes.
 
 The component that uses our new action creator could look like this:
 
@@ -32,7 +32,6 @@ The component that uses our new action creator could look like this:
 import { Map } from 'immutable'
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { getPaginator } from 'violet-paginator'
 import * as actions from './actions'
 
 export function ShowActive({ filters, showActive }) {
@@ -54,7 +53,7 @@ ShowActive.propTypes = {
 
 export default connect(
   state => ({
-    filters: getPaginator(state, 'recipes').get('filters')
+    filters: state.recipes.get('filters')
   }),
   { showActive: actions.showActive }
 )(ShowActive)
@@ -82,10 +81,7 @@ export default function fetchRecipes(pageInfo) {
   ...
 }
 
-const pageActions = composables({
-  listId: 'recipes',
-  fetch: fetchRecipes
-})
+const pageActions = composables({ listId: 'recipes' })
 
 export function showCurrentActiveItems() {
   return pageActions.setFilters({
@@ -110,10 +106,7 @@ export default function fetchRecipes(pageInfo) {
   ...
 }
 
-const pageActions = composables({
-  listId: 'recipes',
-  fetch: fetchRecipes
-})
+const pageActions = composables({ listId: 'recipes' })
 
 export function toggleDevelopers() {
   return pageActions.toggleFilterItem('job_title', 'dev');
@@ -122,5 +115,4 @@ export function toggleDevelopers() {
 export function toggleExecutives() {
   return pageActions.toggleFilterItem('job_title', 'exec');
 }
-
 ```
