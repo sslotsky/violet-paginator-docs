@@ -61,9 +61,9 @@ Injected Property | Description
 `currentPage`|Current page number
 `totalPages`|The total number of pages
 
-## dataGrid()
+## tabulate()
 
-The `dataGrid()` decorator is for components that render the results list.
+The `tabulate()` decorator is for components that render the results list.
 
 Injected Property | Description
 ---|:---
@@ -74,9 +74,9 @@ Injected Property | Description
 `updating`|Indicates which items within the list are being updated
 `removing`|Indicates which items within the list are being removed
 
-## pageSizer
+## stretch()
 
-The `pageSizer()` decorator is for a component that can change the page size.
+The `stretch()` decorator is for a component that can change the page size.
 
 Injected Property | Description
 ---|:---
@@ -84,9 +84,9 @@ Injected Property | Description
 `paginator`|The pagination state for the relevant list
 `pageSize`|Maximum number of results per page
 
-## sorter
+## sort()
 
-The `sorter()` decorator is for a component that sorts the list by a given field.
+The `sort()` decorator is for a component that sorts the list by a given field.
 
 Injected Property | Description
 ---|:---
@@ -96,7 +96,7 @@ Injected Property | Description
 `sortReverse`|Indicates whether to sort in reverse order
 
 
-## paginatedGrid
+## violatePaginator()
 
 The kitchen sink of decorators. This includes all the properties injected by the decorators listed above.
 

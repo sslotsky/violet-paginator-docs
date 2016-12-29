@@ -314,7 +314,7 @@ And here's a link that can sort our list in either direction by a given field na
 ```javascript
 import React, { PropTypes } from 'react'
 import FontAwesome from 'react-fontawesome'
-import { sorter } from './decorators'
+import { sort as decorate } from './decorators'
 
 export function SortLink({ pageActions, field, text, sort, sortReverse, sortable=true }) {
   if (!sortable) {
@@ -344,7 +344,7 @@ SortLink.propTypes = {
   sortable: PropTypes.bool
 }
 
-export default sorter(SortLink)
+export default decorate(SortLink)
 
 ```
 
@@ -368,16 +368,16 @@ export defaut decorators.flip(MyFlipperComponent)
 export default decorators.paginate(MyPaginationComponent)
 
 // Supports grids/datatables
-export default decorators.dataGrid(MyDataGridComponent)
+export default decorators.tabulate(MyDataGridComponent)
 
 // Supprts controls for changing the page size
-export default decorators.pageSizer(MyPageSizeDropdown)
+export default decorators.stretch(MyPageSizeDropdown)
 
 // Supports a control for sorting the list by the field name
-export default decorators.sorter(MySortLink)
+export default decorators.sort(MySortLink)
 
 // The kitchen sink! Injects properties from all decorators
-export default decorators.paginatedGrid(MyPaginatedGridComponent)
+export default decorators.violetPaginator(MyPaginatedGridComponent)
 ```
 
 For more on using decorators or creating your own, [check the docs on decorators](the_paginationwrapper.md).

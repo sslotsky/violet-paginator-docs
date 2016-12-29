@@ -73,16 +73,16 @@ export defaut decorators.flip(MyFlipperComponent)
 export default decorators.paginate(MyPaginationComponent)
 
 // Supports grids/datatables
-export default decorators.dataGrid(MyDataGridComponent)
+export default decorators.tabulate(MyDataGridComponent)
 
 // Supprts controls for changing the page size
-export default decorators.pageSizer(MyPageSizeDropdown)
+export default decorators.stretch(MyPageSizeDropdown)
 
 // Supports a control for sorting the list by the field name
-export default decorators.sorter(MySortLink)
+export default decorators.sort(MySortLink)
 
 // The kitchen sink! Injects properties from all decorators
-export default decorators.paginatedGrid(MyPaginatedGridComponent)
+export default decorators.violatePaginator(MyPaginatedGridComponent)
 ```
 
 For more on using decorators or creating your own, [check the docs on decorators](the_paginationwrapper.md).
