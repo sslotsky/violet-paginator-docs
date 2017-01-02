@@ -1,17 +1,22 @@
 # Expiration
 
-`violet-paginator` caches every list that you initialize within its reducer. This can help with performance if you're navigating through a SPA that displays different paginated lists on different pages; once you've loaded the list, it will still be there when you navigate back to the page where it's located, so there's no need to reload from the server.
+`violet-paginator` caches every list that you initialize within its reducer. This can help with performance if you're navigating
+through a SPA that displays different paginated lists on different pages; once you've loaded the list, it will still be there when
+you navigate back to the page where it's located, so there's no need to reload from the server.
 
-However, sometimes it might be the case that a user action should invalidate the cache. For example, a banking website might show a list of transactions on one side with a control to transfer between accounts on the other. After making a transfer, you want the list of transactions to update to show the new transaction. Expiration is a great way to achieve this: if the list is in view, it will reload immediately, but otherwise, it will wait until next time it renders and reload then.
+However, sometimes it might be the case that a user action should invalidate the cache. For example, a banking website might show
+a list of transactions on one side with a control to transfer between accounts on the other. After making a transfer, you want the list
+of transactions to update to show the new transaction. Expiration is a great way to achieve this: if the list is in view, it will reload
+immediately, but otherwise, it will wait until next time it renders and reload then.
 
 ## expire()
 
 Marking a list expired is easy as long as you have the `listId`. Here's an example of making a custom action creator that calls `expire`:
 
 ```javascript
-import { simpleComposables } from 'violet-paginator'
+import { composables } from 'violet-paginator'
 
-const pageActions = simpleComposables('recipes')
+const pageActions = composables({ listId: 'recipes' })
 
 export function expireList() {
   return pageActions.expire()
@@ -40,7 +45,7 @@ Expire.propTypes = {
 }
 
 export default connect(
-  () => ({}),
+  undefined,
   { expire: expireAll }
 )(Expire)
 ```

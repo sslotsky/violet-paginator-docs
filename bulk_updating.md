@@ -17,10 +17,10 @@ Example:
 
 ```javascript
 import api from 'ROOT/api'
-import { simpleComposables } from 'violet-paginator'
+import { composables } from 'violet-paginator'
 import * as actionTypes from './actionTypes'
 
-const pageActions = simpleComposables(listId)
+const pageActions = composables({ listId: 'recipes' })
 
 export function markAllRead(messageIds) {
   const data = {
@@ -35,36 +35,6 @@ export function markAllRead(messageIds) {
 }
 ```
 
-### `updateAllAsync(data, update, reset=false)`
-
-This calls `updateItemsAsync` passing in all of the ids in the current results list.
-
-1. Dispatch `updateItemsAsync` providing the ids for the current results list
-2. If the `update` promise succeeds:
-  3. With normal settings, call `updateItems` using the resolved data. This leaves it up to the success handler for the `update` promise to return the data that should be applied (or an empty object if it doesn't matter).
-  4. With `reset=true`, reset the result list using the resolved data. This is for instances where the response from the server describes the updated list of records. The success handler for the `update` promise will return the list and `updateAllAsync` will dispatch the `resetResults` action to apply the update.
-
-Example:
-
-```javascript
-import api from 'ROOT/api'
-import { simpleComposables } from 'violet-paginator'
-import * as actionTypes from './actionTypes'
-
-const pageActions = simpleComposables(listId)
-
-export function markAllRead(messageIds) {
-  const data = {
-    read: true
-  }
-
-  return pageActions.updateAllAsync(
-    data,
-    api.messages.markAllRead(messageIds, data).then(() => {})  // return a blank object if the response content doesn't matter
-  )
-}
-```
-
 ## Instant Update
 
 ### `updateItems(itemIds, data)`
@@ -72,29 +42,13 @@ export function markAllRead(messageIds) {
 Use the `updateItems` action to instantly apply the provided `data` to the items specified by the `itemIds`. Example:
 
 ```javascript
-import { simpleComposables } from 'violet-paginator'
+import { composables } from 'violet-paginator'
 
-const pageActions = simpleComposables('messages')
+const pageActions = composables({ listId: 'recipes' })
 
 export function toggleRead(recipeIds) {
   return pageActions.updateAll(
     recipeIds,
-    { active: !recipe.get('active') }
-  )
-}
-```
-
-### `updateAll()` (will soon be deprecated)
-
-Use the `updateAll` action to apply an instant update to every item in the list. Example:
-
-```javascript
-import { simpleComposables } from 'violet-paginator'
-
-const pageActions = simpleComposables('messages')
-
-export function toggleRead() {
-  return pageActions.updateAll(
     { active: !recipe.get('active') }
   )
 }

@@ -1,38 +1,21 @@
 # VioletPaginator
 
 
-This is a fully featured pagination component. It includes link for the previous and next page, for the first and last page, and for up to three pages on each side of the current page. The example below shows the component on page 6 of 35. 
+This is a fully featured pagination component. It includes link for the previous and next page, for the first and last page,
+and for up to three pages on each side of the current page. The example below shows the component on page 6 of 35. 
 
 ![](Screen Shot 2016-10-09 at 2.48.41 PM.png)
-Rendering this component requires a `fetch` function and a `listId`.
+Rendering this component requires only a `listId`.
 
 ```javascript
-import { connect } from 'react-redux'
+import React from 'react'
 import { VioletPaginator } from 'violet-paginator'
-import fetchRecipes from './actions'
 
-export function Recipes({ fetch }) {
+export default function Recipes() {
   return (
     <section>
-      <VioletPaginator listId="recipes" fetch={fetch} />
+      <VioletPaginator listId="recipes" />
     </section>
   )
 }
-
-export default connect(
-  () => ({}),
-  { fetch: fetchRecipes }
-)(Recipes)
-```
-
-Other optional properties are listed in the [Single List Configuration documentation](single_list_configuration.md). The most commonly used optional property is `resultsProp`. This indicates the property name of the server response that contains the results. For example, imagine the server response looks like this:
-
-```
-{ totalCount: 102, recipes: [...] }
-```
-
-In this case, you should render the `VioletPaginator` component like this:
-
-```javascript
-<VioletPaginator listId="recipes" fetch={fetch} resultsProp="recipes" />
 ```

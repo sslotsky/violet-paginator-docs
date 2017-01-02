@@ -5,8 +5,6 @@ If you are using [SSR](http://redux.js.org/docs/recipes/ServerRendering.html), y
 ```javascript
 import React, { Component } from 'react'
 import { VioletPaginator, VioletDataTable } from 'violet-paginator'
-import { connect } from 'react-redux'
-import * as actions from './actions'
 
 const results = [{
   name: 'Ewe and IPA'
@@ -19,11 +17,8 @@ const preloaded = {
   totalCount: 2
 }
 
-export function App({ fetch }) {
+export default function App() {
   const props = {
-    pageSize: 1,
-    totalCountProp: 'totalCount',
-    fetch,
     preloaded,
     listId: 'recipes'
   }
@@ -41,9 +36,4 @@ export function App({ fetch }) {
     </div>
   )
 }
-
-export default connect(
-  undefined,
-  { fetch: actions.fetch }
-)(App)
 ```

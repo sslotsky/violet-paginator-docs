@@ -20,10 +20,10 @@ Example:
 
 ```javascript
 import api from 'ROOT/api'
-import { simpleComposables } from 'violet-paginator'
+import { composables } from 'violet-paginator'
 import * as actionTypes from './actionTypes'
 
-const pageActions = simpleComposables(listId)
+const pageActions = composables({ listId: 'recipes' })
 
 export function toggleActive(recipe) {
   const data = {
@@ -70,9 +70,9 @@ updateItem(itemId, data)
 Use the `updateItem` action if you want to update the values of a list item's properties. For example, assume you want an action creator that toggles the `active` state of a list item:
 
 ```javascript
-import { simpleComposables } from 'violet-paginator'
+import { composables } from 'violet-paginator'
 
-const pageActions = simpleComposables('recipes')
+const pageActions = composables({ listId: 'recipes' })
 
 export function toggleActive(recipe) {
   return pageActions.updateItem(
@@ -89,9 +89,9 @@ In some cases you may want to indicate that an item within a list is waiting for
 ### Setting the state
 
 ```javascript
-import { simpleComposables } from 'violet-paginator'
+import { composables } from 'violet-paginator'
 
-const pageActions = simpleComposables('recipes')
+const pageActions = composables({ listId: 'recipes' })
 
 export function updatingRecipe(recipe) {
   return pageActions.updatingItem(recipe.get('id'))
@@ -141,9 +141,9 @@ If there was a problem updating an item on the server, you may wish to inform th
 ### Setting the state
 
 ```javascript
-import { simpleComposables } from 'violet-paginator'
+import { composables } from 'violet-paginator'
 
-const pageActions = simpleComposables('recipes')
+const pageActions = composables({ listId: 'recipes' })
 
 export function recipeError(recipe, error) {
   return pageActions.itemError(recipe.get('id'), error)

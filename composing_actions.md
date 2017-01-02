@@ -1,18 +1,27 @@
 # Composing Actions
 
-`violet-paginator` is a plugin for redux apps, and as such, it dispatches its own actions and stores state in its own reducer. To give you complete control of the pagination state, the API provides access to all of these actions via the [composables](composables.md) and [simpleComposables](simplecomposables.md) functions. This allows you the flexibility to call them directly as part of a more complex operation. The most common use case for this would be [updating an item within the list](updating_items.md). 
+`violet-paginator` is a plugin for redux apps, and as such, it dispatches its own actions and stores state in its own reducer.
+To give you complete control of the pagination state, the API provides access to all of these actions via the
+[composables](composables.md) function. This allows you the flexibility to call them directly as part of a more complex operation.
+The most common use case for this would be [updating an item within the list](updating_items.md). 
 
 As an example, consider a datatable where one column has a checkbox that's supposed to mark an item as active or inactive. Assuming that you have a `listId` of `'recipes'`, you could write an action creator like this to toggle the active state of a recipe within the list:
 
 ```javascript
-import { simpleComposables } from 'violet-paginator'
+import api from 'ROOT/api'
+import { composables } from 'violet-paginator'
 
-const pageActions = simpleComposables('recipes')
+const pageActions = composables({ listId: 'recipes' })
 
 export function toggleActive(recipe) {
-  return pageActions.updateItem(
+  const data = {
+    active: !recipe.get('active')
+  }
+
+  return pageActions.updateAsync(
     recipe.get('id'),
-    { active: !recipe.get('active') }
+    data,
+    api.recipes.update(data)
   )
 }
 ```
@@ -20,23 +29,27 @@ export function toggleActive(recipe) {
 Now you can bring this action creator into your connected component using `connect` and `mapDispatchToProps`:
 
 ```javascript
+import { toggleActive } from './actions'
+
+export function Recipes({ toggle }) {
+  ...
+}
+
 export default connect(
-  () => ({}),
-  { fetch: fetchRecipes, toggle: toggleActive }
+  undefined,
+  { toggle: toggleActive }
 )(Recipes)
 ```
 
 Finally, the `format` function for the `active` column in your data table might look like this:
 
 ```javascript
-  activeColumn(recipe) {
-    return (
-      <input
-        type="checkbox"
-        checked={!!recipe.get('active')}
-        onClick={() => this.props.toggle(recipe)}
-      />
-    )
-  }
+  const activeColumn = recipe => (
+    <input
+      type="checkbox"
+      checked={recipe.get('active')}
+      onClick={toggle}
+    />
+  )
 ```
 

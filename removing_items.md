@@ -19,10 +19,10 @@ Example usage:
 
 ```javascript
 import api from 'ROOT/api'
-import { simpleComposables } from 'violet-paginator'
+import { composables } from 'violet-paginator'
 import * as actionTypes from './actionTypes'
 
-const pageActions = simpleComposables(listId)
+const pageActions = composables({ listId: 'recipes' })
 
 export function deleteRecipe(recipe) {
   const id = recipe.get('id')
