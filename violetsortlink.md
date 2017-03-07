@@ -5,7 +5,7 @@ By default, the component will display a button which, when clicked, will reques
 buttons as they would appear in the [`VioletDataTable`](violetdatatable.md) component. The arrow in the `Name` column indicates that we have
 sorted the list by the `name` field in ascending order. Clicking the button would switch to descending order and flip the arrow.
 
-![](Screen Shot 2016-10-22 at 2.56.12 PM.png)
+![](columnheader.png)
 
 ## Props
 
