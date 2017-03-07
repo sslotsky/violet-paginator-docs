@@ -12,7 +12,7 @@ List views often have a control that allows users to delete an item. To support 
 2. If the `remove` promise succeeds, call `removeItem` which will remove the item from the list.
 3. If the `remove` promise fails:
   4.  Revert the item using `resetItem`. If you were reacting to the `isRemoving` state in step 1, this step will revert that state. That means that your item will come back if you were filtering it out prematurely.
-  4. Call `itemError` to record the failure to remove that item.
+  5. Rethrow the exception for the caller to handle
 
 
 Example usage:

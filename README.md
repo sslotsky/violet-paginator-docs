@@ -216,7 +216,7 @@ or a full-fledged react component. Example:
 
 ```javascript
   const activeColumn = recipe => {
-    const icon = recipe.get('active') ? 'check' : 'ban'
+    const icon = recipe.active ? 'check' : 'ban'
     return (
       <FontAwesome name={icon} />
     )
@@ -248,11 +248,11 @@ const pageActions = composables({ listId: 'recipes' })
 
 export function toggleActive(recipe) {
   const data = {
-    active: !recipe.get('active')
+    active: !recipe.active
   }
 
   return pageActions.updateAsync(
-    recipe.get('id'),
+    recipe.id,
     data,
     api.recipes.update(data)
   )
@@ -280,7 +280,7 @@ Finally, the `format` function for the `active` column in your data table might 
   const activeColumn = recipe => (
     <input
       type="checkbox"
-      checked={recipe.get('active')}
+      checked={recipe.active}
       onClick={toggle}
     />
   )
@@ -376,8 +376,14 @@ export default decorators.stretch(MyPageSizeDropdown)
 // Supports a control for sorting the list by the field name
 export default decorators.sort(MySortLink)
 
-// The kitchen sink! Injects properties from all decorators
+// The kitchen sink! Injects properties from all decorators above
 export default decorators.violetPaginator(MyPaginatedGridComponent)
+
+// Supports grids/datatables with inline updating
+export default decorators.tabulateLean(MyDataGridComponent)
+
+// Decorator for a component representing a single row
+export default withRecordProps(MyTableRowComponent)
 ```
 
 For more on using decorators or creating your own, [check the docs on decorators](the_paginationwrapper.md).
