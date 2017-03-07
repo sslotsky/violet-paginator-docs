@@ -3,7 +3,7 @@
 This component displays the current page of records in a table with the columns that you specify with the `headers` property.
 Column headings will include sort links by default. 
 
-![](Screen Shot 2016-10-22 at 3.17.21 PM.png)
+![](datatable.png)
 
 To render this component, you must provide a `listId` and an array of `headers`:
 

@@ -8,16 +8,15 @@
        * VioletFlipper
        * VioletPrev
        * VioletNext
-       * [VioletSortLink](violetsortlink.md)
+       * [VioletColumnHeader](violetsortlink.md)
        * [VioletDataTable](violetdatatable.md)
    * [Fetching](fetching.md)
    * [Configuration](configuration.md)
        * [Global Configuration](global_configuration.md)
        * [Single List Configuration](single_list_configuration.md)
    * [Server Side Rendering](server-side-rendering.md)
-* [Upgrading from version 1](upgrade_guide.md)
+* [Upgrading from version 2](upgrade_guide_2_3.md)
 * Advanced Usage
-   * [Intercepting the Promise](intercepting_the_promise.md)
    * Customizing VioletDataTable
    * [Composing Actions](composing_actions.md)
    * Sorting
@@ -28,6 +27,8 @@
    * [Removing Items](removing_items.md)
    * Building Custom Components
        * [Using Decorators](the_paginationwrapper.md)
+       * [Lean Update Tables](lean_update_table.md)
        * Custom Prev Button
        * Custom Sort Link
+   * [Intercepting the Promise](intercepting_the_promise.md)
 

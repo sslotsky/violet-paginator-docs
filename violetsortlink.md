@@ -1,23 +1,31 @@
-# VioletSortLink
+# VioletColumnHeader
 
-This component requests the first page of data, sorted by a given field. The example below shows two sort links as they would appear in the
-[`VioletDataTable`](violetdatatable.md) component. The arrow in the `Name` column indicates that we have sorted the list by the `name`
-field in ascending order. Clicking the link would switch to descending order and flip the arrow.
+By default, the component will display a button which, when clicked, will request the first page of data, sorted by the field specified by the
+`field` prop. Setting `sortable={false}` on this component will cause it to display only the header text. The example below shows two sort
+buttons as they would appear in the [`VioletDataTable`](violetdatatable.md) component. The arrow in the `Name` column indicates that we have
+sorted the list by the `name` field in ascending order. Clicking the button would switch to descending order and flip the arrow.
 
-![](Screen Shot 2016-10-22 at 2.56.12 PM.png)
+![](columnheader.png)
 
-In addition to the `listId` and the `fetch` function, `VioletSortLink` requires the `field` to sort by and the `text` to display.
+## Props
+
+Property name | Type | Description
+---|:---
+`listId`|`string`|The unique identifier for your paginated list, specified during [setup](create_paginator.md)
+`field`|`string`|Name of the field for this column
+`text`|`string`|Header display text
+`sortable`|`bool` (optional)|True by default. Indicates whether the column should be sortable.
 
 ```javascript
-import { VioletSortLink } from 'violet-paginator'
+import { VioletColumnHeader } from 'violet-paginator'
 
 export default function TableHeader() {
   return (
     <thead>
       <tr>
         <td>
-          <VioletSortLink listId="recipes" field="name" text="Name" />
-          <VioletSortLink listId="recipes" field="created_at" text="Date Created" />
+          <VioletColumnHeader listId="recipes" field="name" text="Name" />
+          <VioletColumnHeader listId="recipes" field="created_at" text="Date Created" />
         </td>
       </tr>
     </thead>

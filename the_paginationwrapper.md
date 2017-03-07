@@ -2,25 +2,23 @@
 
 Calling any of our decorator functions on your component will wrap it in a component called the `PaginationWrapper`. This process adds properties
 to your component to allow it to interact with `violet-paginator`, and also adds lifecycle hooks so that a new page of results will be requiested
-at the appropriate time. As an example, see the `Flipper` component below:
+at the appropriate time. All decorators require a `listId` property.
+
+As an example, see the `Flipper` component below:
 
 ```javascript
 import React, { PropTypes } from 'react'
-import classNames from 'classnames'
 import { flip } from './decorators'
 import { Prev } from './Prev'
 import { Next } from './Next'
 
 export function Flipper(props) {
-  const prevClasses = classNames({ disabled: !props.hasPreviousPage })
-  const nextClasses = classNames({ disabled: !props.hasNextPage })
-
   return (
     <ul className="pagination">
-      <li className={prevClasses}>
+      <li>
         <Prev {...props} />
       </li>
-      <li className={nextClasses}>
+      <li>
         <Next {...props} />
       </li>
     </ul>
@@ -44,7 +42,6 @@ The `flip()` decorator is for simple 'previous' and 'next' links.
 Injected Property | Description
 ---|:---
 `pageActions`|A set of actions targeting the relevant list
-`paginator`|The pagination state for the relevant list
 `hasPreviousPage`|Indicates whether the current page has a previous page
 `hasNextPage`|Indicates whether the current page has a next page
 
@@ -55,7 +52,6 @@ The `paginate()` decorator is for full pagination controls, including specific p
 Injected Property | Description
 ---|:---
 `pageActions`|A set of actions targeting the relevant list
-`paginator`|The pagination state for the relevant list
 `hasPreviousPage`|Indicates whether the current page has a previous page
 `hasNextPage`|Indicates whether the current page has a next page
 `currentPage`|Current page number
@@ -68,11 +64,20 @@ The `tabulate()` decorator is for components that render the results list.
 Injected Property | Description
 ---|:---
 `pageActions`|A set of actions targeting the relevant list
-`paginator`|The pagination state for the relevant list
 `results`|The records that make up the list
 `isLoading`|Indicates that the list is being fetched
-`updating`|Indicates which items within the list are being updated
-`removing`|Indicates which items within the list are being removed
+
+## tabulate()
+
+The `tabulateLean()` decorator is for components that render the results lists that
+require inline updating. Similar to `tabulate()` but performs better when updates
+occur.
+
+Injected Property | Description
+---|:---
+`pageActions`|A set of actions targeting the relevant list
+`ids`|An array of ids corresponding to the records in the current page
+`isLoading`|Indicates that the list is being fetched
 
 ## stretch()
 
@@ -81,7 +86,6 @@ The `stretch()` decorator is for a component that can change the page size.
 Injected Property | Description
 ---|:---
 `pageActions`|A set of actions targeting the relevant list
-`paginator`|The pagination state for the relevant list
 `pageSize`|Maximum number of results per page
 
 ## sort()
@@ -91,24 +95,20 @@ The `sort()` decorator is for a component that sorts the list by a given field.
 Injected Property | Description
 ---|:---
 `pageActions`|A set of actions targeting the relevant list
-`paginator`|The pagination state for the relevant list
 `sort`|The field to sort by
 `sortReverse`|Indicates whether to sort in reverse order
 
 
 ## violatePaginator()
 
-The kitchen sink of decorators. This includes all the properties injected by the decorators listed above.
+Something of a kitchen sink. Includes properties from most of the decorators listed above.
 
 Injected Property | Description
 ---|:---
 `pageActions`|A set of actions targeting the relevant list
-`paginator`|The pagination state for the relevant list
 `pageSize`|Maximum number of results per page
 `results`|The records that make up the list
 `isLoading`|Indicates that the list is being fetched
-`updating`|Indicates which items within the list are being updated
-`removing`|Indicates which items within the list are being removed
 `totalPages`|The total number of pages
 `sort`|The field to sort by
 `sortReverse`|Indicates whether to sort in reverse order

@@ -14,7 +14,7 @@ We intend for the `updateAsync` action to be your one-stop-shop for inline updat
 2. Call `updatingItem` to indicate that the item is waiting for an update from the server.
 3. Call the `update` promise, provided as the last argument to `updateAsync`. 
 4. If the `update` promise succeeds, call `updateItem` again using the resolved data.
-5. If the `update` promise fails, use `resetItem` to revert the item to its previous state. Then dispatch `itemError` to indicate that the item failed to update.
+5. If the `update` promise fails, use `resetItem` to revert the item to its previous state. Then rethrow the error for the caller to handle.
 
 Example:
 
@@ -27,11 +27,11 @@ const pageActions = composables({ listId: 'recipes' })
 
 export function toggleActive(recipe) {
   const data = {
-    active: !recipe.get('active')
+    active: !recipe.active
   }
 
   return pageActions.updateAsync(
-    recipe.get('id'),
+    recipe.id,
     data,
     api.recipes.update(data)
   )
@@ -43,7 +43,7 @@ Note that `violet-paginator` will handle your promise failure if it occurs. If y
 ```javascript
 export function toggleActive(recipe) {
   const data = {
-    active: !recipe.get('active')
+    active: !recipe.active
   }
 
   const update = api.recipes.update(data).catch(err => {
@@ -52,7 +52,7 @@ export function toggleActive(recipe) {
   })
   
   return pageActions.updateAsync(
-    recipe.get('id'),
+    recipe.id,
     data,
     update
   )
@@ -76,8 +76,8 @@ const pageActions = composables({ listId: 'recipes' })
 
 export function toggleActive(recipe) {
   return pageActions.updateItem(
-    recipe.get('id'),
-    { active: !recipe.get('active') }
+    recipe.id,
+    { active: !recipe.active }
   )
 }
 ```
@@ -94,7 +94,7 @@ import { composables } from 'violet-paginator'
 const pageActions = composables({ listId: 'recipes' })
 
 export function updatingRecipe(recipe) {
-  return pageActions.updatingItem(recipe.get('id'))
+  return pageActions.updatingItem(recipe.id)
 }
 ```
 
@@ -132,23 +132,19 @@ While `updateItem` will merge in all provided data, `resetItem` will actually ov
     }
 ```
 
-
-
-## Indicate Item in Error
-
-If there was a problem updating an item on the server, you may wish to inform the user by styling the corresponding row in the table.
-
-### Setting the state
-
-```javascript
-import { composables } from 'violet-paginator'
-
-const pageActions = composables({ listId: 'recipes' })
-
-export function recipeError(recipe, error) {
-  return pageActions.itemError(recipe.get('id'), error)
-}
-```
-
 ### Checking the state
 
+To know whether or not an item is updating, use the `isUpdating` function in your selector:
+
+```javascript
+import { isUpdating } from 'violet-paginator'
+
+...
+
+export default connect(
+  state => ({ updating: isUpdating(state, 'myList', ownProps.recordId) })
+)(MyTableRowComponent)
+```
+
+Note that the `DataRow` component and the `withRecordProps()` decorator with both give you this infomration for free.
+[See here for more details](lean_update_table.md).

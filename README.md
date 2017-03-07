@@ -8,7 +8,7 @@
 
 VioletPaginator is a react-redux package allowing users to manage arbitrarily many filtered, paginated lists
 of records. We provide a set of premade components including both simple and robust pagination controls,
-sort links, and data tables. We also make it ridiculously easy to write your own components and configure
+sort controls, and data tables. We also make it ridiculously easy to write your own components and configure
 and extend VioletPaginator's default behavior by composing actions.
 
 ## Demo
@@ -216,7 +216,7 @@ or a full-fledged react component. Example:
 
 ```javascript
   const activeColumn = recipe => {
-    const icon = recipe.get('active') ? 'check' : 'ban'
+    const icon = recipe.active ? 'check' : 'ban'
     return (
       <FontAwesome name={icon} />
     )
@@ -248,11 +248,11 @@ const pageActions = composables({ listId: 'recipes' })
 
 export function toggleActive(recipe) {
   const data = {
-    active: !recipe.get('active')
+    active: !recipe.active
   }
 
   return pageActions.updateAsync(
-    recipe.get('id'),
+    recipe.id,
     data,
     api.recipes.update(data)
   )
@@ -280,7 +280,7 @@ Finally, the `format` function for the `active` column in your data table might 
   const activeColumn = recipe => (
     <input
       type="checkbox"
-      checked={recipe.get('active')}
+      checked={recipe.active}
       onClick={toggle}
     />
   )
@@ -290,33 +290,37 @@ Finally, the `format` function for the `active` column in your data table might 
 
 We understand that every product team could potentially want something different, and our premade components sometimes just won't fit that mold. We want to make it painless
 to write your own components, so to accomplish that, we made sure that it was every bit as painless to write ours. The best way to see how to build a custom component
-is to look at some of the simpler premade components. For example, here's a link that retrieves the next page of records:
+is to look at some of the simpler premade components. For example, here's a button that retrieves the next page of records:
 
 ```javascript
-import React from 'react'
-import FontAwesome from 'react-fontawesome'
+import React, { PropTypes } from 'react'
 import { flip } from './decorators'
 
 export function Next({ pageActions, hasNextPage }) {
-  const next = <FontAwesome name="chevron-right" />
-  const link = hasNextPage ? (
-    <a onClick={pageActions.next}>{next}</a>
-  ) : next
+  return (
+    <button type="button" disabled={!hasNextPage} onClick={pageActions.next}>
+      <i className="fa fa-chevron-right" />
+    </button>
+  )
+}
 
-  return link
+Next.propTypes = {
+  pageActions: PropTypes.shape({
+    next: PropTypes.func.isRequired
+  }).isRequired,
+  hasNextPage: PropTypes.bool
 }
 
 export default flip(Next)
 ```
 
-And here's a link that can sort our list in either direction by a given field name:
+And here's a button that can sort our list in either direction by a given field name:
 
 ```javascript
 import React, { PropTypes } from 'react'
-import FontAwesome from 'react-fontawesome'
 import { sort as decorate } from './decorators'
 
-export function SortLink({ pageActions, field, text, sort, sortReverse, sortable=true }) {
+export function ColumnHeader({ pageActions, field, text, sort, sortReverse, sortable=true }) {
   if (!sortable) {
     return <span>{text}</span>
   }
@@ -325,17 +329,20 @@ export function SortLink({ pageActions, field, text, sort, sortReverse, sortable
     pageActions.sort(field, !sortReverse)
 
   const arrow = sort === field && (
-    sortReverse ? 'angle-up' : 'angle-down'
+    sortReverse ? 'sort-desc' : 'sort-asc'
   )
 
+  const icon = arrow || 'sort'
+
   return (
-    <a onClick={sortByField}>
-      {text} <FontAwesome name={arrow || ''} />
-    </a>
+    <button onClick={sortByField}>
+      {text}
+      <i className={`fa fa-${icon}`} />
+    </button>
   )
 }
 
-SortLink.propTypes = {
+ColumnHeader.propTypes = {
   sort: PropTypes.string,
   sortReverse: PropTypes.bool,
   pageActions: PropTypes.object,
@@ -344,7 +351,8 @@ SortLink.propTypes = {
   sortable: PropTypes.bool
 }
 
-export default decorate(SortLink)
+export default decorate(ColumnHeader)
+
 
 ```
 
@@ -361,7 +369,7 @@ import { decorators } from 'violet-paginator'
 and you are ready to roll your own:
 
 ```javascript
-// Supports 'previous' and 'next' links
+// Supports 'previous' and 'next' controls
 export defaut decorators.flip(MyFlipperComponent)
 
 // Supports full pagination controls
@@ -376,8 +384,14 @@ export default decorators.stretch(MyPageSizeDropdown)
 // Supports a control for sorting the list by the field name
 export default decorators.sort(MySortLink)
 
-// The kitchen sink! Injects properties from all decorators
+// The kitchen sink! Injects properties from all decorators above
 export default decorators.violetPaginator(MyPaginatedGridComponent)
+
+// Supports grids/datatables with inline updating
+export default decorators.tabulateLean(MyDataGridComponent)
+
+// Decorator for a component representing a single row
+export default withRecordProps(MyTableRowComponent)
 ```
 
 For more on using decorators or creating your own, [check the docs on decorators](the_paginationwrapper.md).
