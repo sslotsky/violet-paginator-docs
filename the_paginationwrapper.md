@@ -67,7 +67,7 @@ Injected Property | Description
 `results`|The records that make up the list
 `isLoading`|Indicates that the list is being fetched
 
-## tabulate()
+## tabulateLean()
 
 The `tabulateLean()` decorator is for components that render the results lists that
 require inline updating. Similar to `tabulate()` but performs better when updates
